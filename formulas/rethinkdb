@@ -8,5 +8,6 @@ run --detach \
     --publish 8080:8080 \
     --publish 28015:28015 \
     --publish 29015:29015 \
+    -v "/Users/loki/data" \
     --name dock-rethinkdb \
-    shipyard/rethinkdb
+    rethinkdb
