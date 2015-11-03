@@ -1,0 +1,10 @@
+#!/bin/bash
+
+source "${BASH_SOURCE%/*}/../common"
+
+force_stop dock-confluence
+
+run --detach \
+    --name dock-confluence \
+    --publish 8090:8090 \
+    cptactionhank/atlassian-confluence:latest

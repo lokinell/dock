@@ -1,0 +1,15 @@
+#!/bin/bash
+
+source "${BASH_SOURCE%/*}/../common"
+
+force_stop dock-consul
+
+run --detach \
+    --publish 8400:8400 \
+    --publish 8500:8500 \
+    --publish 8600:53/udp \
+    -h node1 \
+    -server -bootstrap \
+    -ui-dir /ui
+    --name dock-consul \
+    progrium/consul:latest

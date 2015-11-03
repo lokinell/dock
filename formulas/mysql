@@ -5,11 +5,9 @@ source "${BASH_SOURCE%/*}/../common"
 force_stop dock-mysql
 
 root_pw="mysqlpw"
-database="matrix"
 
 run --detach \
     --env MYSQL_ROOT_PASSWORD=$root_pw \
-    --env MYSQL_DATABASE=$database \
     --publish 3306:3306 \
     --name dock-mysql \
     mysql

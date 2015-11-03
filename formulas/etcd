@@ -1,0 +1,14 @@
+#!/bin/bash
+
+source "${BASH_SOURCE%/*}/../common"
+
+force_stop dock-etcd
+
+run --detach \
+    --publish 2379:2379 \
+    --publish 2380:2380 \
+    --publish 4001:4001 \
+    --publish 7001:7001 \
+    -v /Users/loki/data/etcd:/data \
+    --name dock-etcd \
+    elcolio/etcd:latest 
